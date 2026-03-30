@@ -48,7 +48,6 @@ O tratamento inclui:
 - Remoção de avaliações neutras
 - Limpeza do texto (pontuação, HTML, caracteres especiais)
 - Conversão para minúsculo
-- Remoção de stopwords
 - Tokenização
 - Vetorização com TF-IDF
 ##
