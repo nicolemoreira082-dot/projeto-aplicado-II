@@ -43,5 +43,4 @@ O desempenho é mensurado através de:
 * Precisão (Precision).
 * Sensibilidade (Recall).
 * F1-Score e Matriz de Confusão.
-- @nicolemoreira082-ponto
-- @Tawanynsantos
+
