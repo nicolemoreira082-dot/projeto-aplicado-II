@@ -1,81 +1,47 @@
 # MODELO PREDITIVO PARA CLASSIFICAÇÃO DE AVALIAÇÕES DE CLIENTES DA AMAZON
 
 ## Descrição do Projeto
-Este projeto foi desenvolvido como parte da disciplina de Projeto Aplicado II, do curso de Tecnologia em Ciência de Dados da Universidade Presbiteriana Mackenzie.
-O objetivo principal do estudo é desenvolver um modelo preditivo capaz de classificar automaticamente avaliações de clientes da Amazon como positivas ou negativas, com base no texto escrito pelos usuários.
-O projeto está inserido no contexto de análise de sentimentos (NLP), sendo aplicado ao segmento de produtos alimentícios da Amazon (Amazon Fine Foods). A proposta busca entender padrões linguísticos nas avaliações e automatizar uma tarefa que, manualmente, seria inviável devido ao grande volume de dados.
-##
-## Problema Preditivo 
-O problema do projeto consiste em:
-Classificar avaliações de produtos como positivas ou negativas com base no texto.
-Critérios adotados:
-- Score ≥ 4 → Positivo (1)
-- Score ≤ 2 → Negativo (0)
-- Score = 3 → Removido da análise
-##
+Este projeto foi desenvolvido como parte da disciplina de Projeto Aplicado II, do curso de tecnologia em Banco de Dados da Universidade Presbiteriana Mackenzie.O objetivo principal é desenvolver um modelo preditivo de *Deep Learning* capaz de classificar automaticamente avaliações de clientes da Amazon como positivas, neutras ou negativas, com base no processamento de linguagem natural (NLP).O estudo utiliza o dataset Amazon Fine Foods para entender padrões linguísticos e automatizar a análise de sentimentos em larga escala.
+
+## Problema Preditivo
+O desafio consiste em classificar a polaridade da experiência do usuário com base exclusivamente em seu relato textual.
+*Critérios de Classificação (Labels):*
+* *Positivo (LABEL_2):* Pontuação 4 ou 5.
+* *Neutro (LABEL_1):* Pontuação 3.
+* *Negativo (LABEL_0):* Pontuação 1 ou 2.
+
 ## Metodologia
-A solução será baseada em técnicas de Machine Learning supervisionado, com foco em classificação binária utilizando regressão logística.
-O projeto segue as seguintes etapas:
+A solução utiliza técnicas avançadas de *Aprendizado Profundo (Deep Learning)* através da arquitetura *Transformers*. O fluxo de trabalho compreende:
+1.  [cite_start]Análise Exploratória de Dados (EDA) e visualização temporal.
+2.  [cite_start]Tratamento e limpeza de dados (preservando a integridade do texto).
+3.  [cite_start]Tokenização e codificação para modelos de linguagem.
+4.  [cite_start]Implementação do modelo *RoBERTa* (via Hugging Face)
+5.  Avaliação de desempenho multiclasse.
 
-- Análise exploratória dos dados (EDA)
-- Tratamento e limpeza dos dados
-- Pré-processamento textual
-- Vetorização com TF-IDF
-- Treinamento do modelo
-- Avaliação com métricas
-  
-Essas etapas estão alinhadas com os requisitos da Etapa 2 do projeto, que incluem análise, tratamento e definição do método analítico.
-##
+
+
 ## Estrutura dos Dados
-Principais colunas utilizadas:
-- Text → texto da avaliação (feature principal)
-- Summary → resumo da avaliação
-- Score → variável alvo (binarizada)
+* *Text:* Conteúdo integral da avaliação (Feature Principal).
+* *Summary:* Resumo da avaliação (Feature Secundária).
+* *Score:* Variável alvo para treinamento e validação.
 
-Outras colunas foram utilizadas apenas como apoio ou descartadas durante o tratamento.
-##
-## Análise Exploratória
-Foram realizadas análises como:
-- Distribuição das notas (scores)
-- Separação entre avaliações positivas e negativas
-- Frequência de palavras
-- Tamanho dos textos
-  
-Essa etapa permite compreender padrões nos dados antes da modelagem.
-##
-## Tratamento dos Dados
-O tratamento inclui:
-- Remoção de avaliações neutras
-- Limpeza do texto (pontuação, HTML, caracteres especiais)
-- Conversão para minúsculo
-- Tokenização
-- Vetorização com TF-IDF
-##
-## Modelo
-Modelo utilizado:
-- Regressão Logística
-Divisão dos dados:
-80% treino
-20% teste
-##
+## Análise Exploratória (EDA)
+Foram realizadas análises para identificar:
+* Distribuição volumétrica das notas de 1 a 5.
+* Proporção de sentimentos (Positivo, Neutro e Negativo).
+* Evolução da média de avaliações por ano.
+* Padrões de comprimento de texto e nuvem de palavras mais frequentes.
+
+## Modelo: RoBERTa
+Diferente de modelos estatísticos simples, o *RoBERTa* (Robustly Optimized BERT Approach) utiliza mecanismos de atenção para compreender o contexto completo das frases, incluindo negações e intensificadores.
+* *Processamento:* Manutenção de stop words para garantir a precisão semântica.
+* *Divisão de dados:* 80% treino / 20% teste.
+
 ## Métricas de Avaliação
-O desempenho do modelo será avaliado com:
-- Acurácia
-- Precisão
-- Recall
-- F1-score
-- Matriz de confusão
-  
-Essas métricas seguem os critérios definidos na disciplina.
-##
-## Objetivo do Projeto
-Desenvolver um modelo capaz de:
-- Classificar automaticamente avaliações de clientes
-- Atingir acurácia ≥ 80%
-- Gerar insights sobre padrões de linguagem em avaliações
-#
-## Integrantes do grupo:
-- @Allana691
-- @Erikabenesi
+O desempenho é mensurado através de:
+* Acurácia (Meta >= 80%).
+* Precisão (Precision).
+* Sensibilidade (Recall).
+* F1-Score e Matriz de Confusão.
 - @nicolemoreira082-ponto
 - @Tawanynsantos
